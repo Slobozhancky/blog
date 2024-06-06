@@ -1,4 +1,4 @@
-<?php require './components/header.tpl.php'; ?>
+<?php require COMPONENTS . '/header.tpl.php'; ?>
 
         <main class="main">
             <div class="container">
@@ -8,10 +8,10 @@
                         <p><?= $content ?></p>
                     </div>
 
-                   <?php require "./components/sidebar.tpl.php"; ?>
+                   <?php require COMPONENTS . "/sidebar.tpl.php"; ?>
                     
                 </div>
             </div>
         </main>
 
-<?php require './components/footer.tpl.php'; ?>
+<?php require COMPONENTS . '/footer.tpl.php'; ?>
