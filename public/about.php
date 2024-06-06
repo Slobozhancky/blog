@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__DIR__) . '/core/constants.php';
+
 $title = "About";
 
 $content = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe nam iusto deleniti neque vero culpa dolore recusandae qui atque molestias exercitationem, repellendus cumque a aliquid cupiditate nemo, quos optio sed cum eveniet sint? Sint perferendis magni minus, sapiente provident deserunt?';
@@ -23,4 +25,4 @@ $list_group = [
     ],
 ];
 
-require 'about.tpl.php';
+require VIEWS . '/about.tpl.php';

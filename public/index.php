@@ -1,5 +1,8 @@
 <?php
 
+require_once dirname(__DIR__) . '/core/constants.php';
+require_once '../vendor/autoload.php';
+
 $title = "Blog";
 
 $posts = [
@@ -41,4 +44,5 @@ $list_group = [
     ],
 ];
 
-require 'index.tpl.php';
+
+require VIEWS . '/index.tpl.php';

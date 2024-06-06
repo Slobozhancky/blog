@@ -1,0 +1,18 @@
+{
+    "name": "ilslo/blog",
+    "description": "pet project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Ilslo\\Blog\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "slobozhancky"
+        }
+    ],
+    "require": {
+        "larapack/dd": "1.*"
+    }
+}
