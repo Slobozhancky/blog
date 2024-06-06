@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main {
+    flex:  1 1 auto;
+}
+
+nav.navbar-nav li a{
+    color: white;
+}
