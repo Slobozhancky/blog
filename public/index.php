@@ -1,17 +1,8 @@
 <?php
 
-require_once '../core/constants.php';
-require_once '../core/func.php';
-require_once '../vendor/autoload.php';
+require_once '../config/constants.php';
 
-$uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], '/');
+require_once CORE . '/func.php';
+require_once CORE . '/router.php';
 
-d($_GET);
-
-if ($uri === '') {
-    require CONTROLLERS . '/index.php';
-}elseif($uri === 'about'){
-    require CONTROLLERS . '/about.php';
-}else{
-    aboard(404);
-}
+require_once VENDOR . '/autoload.php';
