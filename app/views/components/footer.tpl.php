@@ -2,7 +2,7 @@
         <footer class="bg-dark navbar-dark bg-dark">
             <div class="container">
                 <div class="wrapper d-flex justify-content-center">
-                    <p  style="color: white;">
+                    <p  style="color: white;" class="mb-0 p-3">
                         <?php echo date('d.m.Y') . " " . "by " . "slobozhancky" ?>
                     </p>
                 </div>
