@@ -10,7 +10,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $post['title'] ?></h5>
                                     <p class="card-text"><?= $post['body'] ?></p>
-                                    <a href="<?= $post['slug'] ?>" class="btn btn-primary"><?= $post['slug'] ?></a>
+                                    <a href="post?id=<?php echo $post['id'] ?>" class="btn btn-primary">Go to post</a>
                                 </div>
                             </div>
                             
