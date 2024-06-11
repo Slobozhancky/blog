@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Ilslo\\Blog\\": "app/"
+            "App\\": "app/",
+            "Core\\": "core/"
         }
     },
     "authors": [
@@ -13,6 +14,7 @@
         }
     ],
     "require": {
-        "larapack/dd": "1.*"
+        "larapack/dd": "1.*",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

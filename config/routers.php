@@ -1,7 +1,7 @@
 <?php 
 
 return $routes = [
-    '' => 'index.php',
+    '' => 'home.php',
     'about' => 'about.php',
     'post' => 'post.php',
     'contacts' => 'contacts.php',
