@@ -3,10 +3,10 @@
         <main class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 d-flex">
+                    <div class="col-md-8">
                         <?php foreach ($posts as $key => $post): ?>
                             
-                            <div class="card mb-2 ms-2" style="width: 18rem;">
+                            <div class="card mb-2 ms-2"">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $post['title'] ?></h5>
                                     <p class="card-text"><?= $post['body'] ?></p>
