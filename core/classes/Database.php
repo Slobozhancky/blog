@@ -2,6 +2,7 @@
 
 class Database {
     private $connection;
+    private $statement;
 
     public function __construct(array $db_config)
     {
@@ -14,11 +15,30 @@ class Database {
         }
     }
 
-    public function query ($query) {
-        $statement = $this->connection->prepare($query);
-        $statement->execute();
+    public function query ($query, $params = []) {
+        $this->statement = $this->connection->prepare($query);
+        $this->statement->execute($params);
 
-        return $statement;
+        return $this;
+    }
+
+    public function findAll(){
+        return $this->statement->fetchAll();
+    }
+
+    public function find(){
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail(){
+
+        $res = $this->find();
+
+        if(!$res){
+            aboard(404);
+        }
+
+        return $res;
     }
 
 }
