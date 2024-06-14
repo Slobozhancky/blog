@@ -18,7 +18,7 @@ require_once CORE . '/func.php';
 $db_config = require CONFIG . '/db_conf.php';
 require_once CORE . '/classes/Database.php';
 // =========================================
-$db = new Database($db_config);
+$db = (Database::getInstance())->getConnection($db_config);
 
 // Підключення відповідних роутінгів
 require_once CORE . '/router.php';
