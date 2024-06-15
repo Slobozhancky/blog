@@ -9,7 +9,7 @@
                             <div class="card mb-2 ms-2"">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $post['title'] ?></h5>
-                                    <p class="card-text"><?= $post['body'] ?></p>
+                                    <p class="card-text"><?= $post['content'] ?></p>
                                     <a href="post?id=<?php echo $post['id'] ?>" class="btn btn-primary">Go to post</a>
                                 </div>
                             </div>
