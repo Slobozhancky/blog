@@ -26,7 +26,7 @@
                             <a class="nav-link" href="contacts">Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="posts/create">New Post</a>
+                            <a class="nav-link" href="posts/create">Create new Post</a>
                         </li>
                     </ul>
                 </div>

@@ -4,20 +4,20 @@ session_start();
  * @var Database $db
  */
 
-$title = "New Post";
+$title = "Create new Post";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $fillable = ['title', 'content'];
-    $data = vlidateInputsWithForm($fillable);
+    $data = validateInputsWithForm($fillable);
 
     $errors = validateOnEmpty($data);
 
     if (empty($errors)) {
-        $newPost = $db->query("INSERT INTO `posts` (`title`, `content`) VALUES(?, ?)", [$data['title'], $data['content']]);
+        $newPost = $db->query("INSERT INTO `posts` (`title`, `content`) VALUES(:title, :content)", $data);
+        redirect('/posts/create');
     }
 
-    d($errors);
 
 }
 

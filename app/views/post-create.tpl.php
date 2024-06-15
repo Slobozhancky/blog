@@ -8,17 +8,17 @@
                     <form class="needs-validation" action="" method="post" novalidate>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title" value="<?= specialChars(old('title')); ?>">
 
                              <?php if(isset($errors['title'])): ?>
                             <div class="invalid-feedback d-block">
-                                <?= $errors['content'] ?>
+                                <?= $errors['title'] ?>
                             </div>
                             <?php endif ?>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3" placeholder="Чекаю на введення даних"><?= specialChars(old('content')); ?></textarea>
                            
                             <?php if(isset($errors['content'])): ?>
                             <div class="invalid-feedback d-block">
