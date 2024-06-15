@@ -6,12 +6,12 @@ function aboard($code){
     die;
 }
 
-function vlidateInputsWithForm(array $fillable){
+function validateInputsWithForm(array $fillable){
     $data = [];
 
     foreach ($_POST as $key => $value) {
         if (in_array($key, $fillable)) {
-            $data[$key] = $value;
+            $data[$key] = htmlspecialchars(trim($value), ENT_QUOTES|ENT_SUBSTITUTE);
         }
     }
 
@@ -28,4 +28,23 @@ function validateOnEmpty(array $items){
     }
 
     return $errors;
+}
+
+function old($fieldname){
+    return isset($_POST[$fieldname]) ? $_POST[$fieldname] : '';
+}
+
+function specialChars($str){
+    return htmlspecialchars($str, ENT_QUOTES|ENT_SUBSTITUTE);
+}
+
+function redirect($url = ''){
+    if ($url) {
+        $redirect = $url;
+    }else{
+        $redirect = isset($_SERVER['HHTP_REFERER']) ? $_SERVER['HHTP_REFERER'] : PATH;
+    }
+
+    header("Location: {$redirect}");
+    die;
 }
