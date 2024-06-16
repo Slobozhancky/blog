@@ -40,9 +40,15 @@ class Database {
     }
 
     public function query ($query, $params = []) {
-        $this->statement = $this->connection->prepare($query);
-        $this->statement->execute($params);
 
+        try {
+            $this->statement = $this->connection->prepare($query);
+            $this->statement->execute($params);
+        } catch (PDOException $error) {
+            d($error->getMessage());
+            return false;
+        }
+        
         return $this;
     }
 
