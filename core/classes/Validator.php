@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\Classes;
+
 class Validator {
     protected $errors = [];
     protected $rules_list = ['reqired', 'min', 'max', 'email'];
