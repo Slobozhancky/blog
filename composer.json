@@ -4,9 +4,13 @@
     "type": "project",
     "autoload": {
         "psr-4": {
+            "Blog\\": "blog/",
             "App\\": "app/",
             "Core\\": "core/"
-        }
+        },
+        "files": [
+            "core/func.php"
+        ]
     },
     "authors": [
         {

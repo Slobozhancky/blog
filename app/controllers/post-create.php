@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-require_once CORE . '/classes/Validator.php';
-
-/**
- * @var Database $db
- */
+use Core\Classes\Validator;
 
 $title = "Create new Post";
 

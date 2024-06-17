@@ -1,5 +1,7 @@
 <?php
 
+namespace Core\Classes;
+
 class Database {
     private $connection;
     private $statement;
@@ -32,9 +34,9 @@ class Database {
         $dsn = "mysql:host={$db_config['host']};dbname={$db_config['database']};charset={$db_config['charset']}";
 
         try {
-            $this->connection = new PDO($dsn, $db_config['login'], $db_config['password'], $db_config['options']);
+            $this->connection = new \PDO($dsn, $db_config['login'], $db_config['password'], $db_config['options']);
             return $this;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             aboard(500);
         }
     }
@@ -44,7 +46,7 @@ class Database {
         try {
             $this->statement = $this->connection->prepare($query);
             $this->statement->execute($params);
-        } catch (PDOException $error) {
+        } catch (\PDOException $error) {
             d($error->getMessage());
             return false;
         }

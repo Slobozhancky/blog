@@ -10,13 +10,13 @@ $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
 $dotenv->load();
 // =========================================
 
-// Підключаємо допоміжні функційї
-require_once CORE . '/func.php';
+// Підключаємо допоміжні функційї. На 12-му етапі, ми цей файл підключили у файлі composer.json
+// require_once CORE . '/func.php';
 // =========================================
 
 // Зєднання з базою даних
 $db_config = require CONFIG . '/db_conf.php';
-require_once CORE . '/classes/Database.php';
+use Core\Classes\Database;
 // =========================================
 $db = (Database::getInstance())->getConnection($db_config);
 
