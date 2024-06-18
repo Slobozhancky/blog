@@ -4,7 +4,7 @@ namespace Core\Classes;
 
 class Validator {
     protected $errors = [];
-    protected $rules_list = ['reqired', 'min', 'max', 'email'];
+    protected $rules_list = ['required', 'min', 'max', 'email'];
     protected $messages = [
         'required' => 'Поле :fieldname: повинно бути обов\'язковим',
         'min' => 'Поле :fieldname: повинно бути більше :rules: символів',
@@ -15,7 +15,7 @@ class Validator {
 
     public function validate($data, $rules): object{
         foreach ($data as $fieldname => $value) {
-            if (in_array($fieldname, array_keys($rules))) {
+            if (isset($rules[$fieldname])) {
                 $this->checked([
                     'fieldname' => $fieldname,
                     'value' => $value,
@@ -49,7 +49,21 @@ class Validator {
         return !empty($this->errors);
     }
 
-    protected function requiredField($value, $rule_value){
+    public function errorsList($fieldname){
+        
+        $output = '';
+        if(isset($this->errors[$fieldname])){
+            $output .= "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+                foreach ($this->errors[$fieldname] as $error) {
+                $output .= "<li>{$error}</li>";
+                }
+            $output .= "</ul></div>";
+        }
+
+        return $output;
+    }
+
+    protected function required($value, $rule_value){
         return !empty(trim($value));
     }
 

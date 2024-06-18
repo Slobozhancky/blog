@@ -42,9 +42,21 @@ function redirect($url = ''){
     if ($url) {
         $redirect = $url;
     }else{
-        $redirect = isset($_SERVER['HHTP_REFERER']) ? $_SERVER['HHTP_REFERER'] : PATH;
+        $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
     }
 
     header("Location: {$redirect}");
     die;
+}
+
+function getAllerts(){
+    if(!empty($_SESSION['success'])){
+        require_once COMPONENTS . '/success-alert.tpl.php';
+        unset($_SESSION['success']);
+    }
+
+    if(!empty($_SESSION['error'])){
+        require_once COMPONENTS . '/danger-alert.tpl.php';
+        unset($_SESSION['error']);
+    }
 }

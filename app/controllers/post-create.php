@@ -26,18 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         ],
     ]);
 
-    if ($validation->hasErrors()) {
-        d($validation->getErrors());
-    }else{
-
+    if (!$validation->hasErrors()) {
         if ($db->query("INSERT INTO `posts` (`title`, `content`) VALUES(:title, :content)", $data)) {
-            echo "OK";
+             $_SESSION['success'] = 'Новий пост було створено';
         }else{
-            echo "Database error";
+            $_SESSION['error'] = "Database Error";
         }
 
-        // redirect('/posts/create');
-
+        redirect();
     }
 
 }
