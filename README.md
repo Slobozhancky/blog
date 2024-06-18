@@ -371,3 +371,59 @@ function specialChars($str){
     },
    ```
    - тут у масиві `files` - бачимо що підключається функція `func.php` з папки `core` і це говорить нам про те, що підключення у нашій точці входу, тобто у файлику `index.php` більше не потрібно, бо це все, буде робити автозагрузка
+
+## Етап 13 - 18-06-2024
+
+1. Зробив написання функції `errorsList` - мета цієї функції формувати строку з помилками, яку ми будемо виводити у вьюшки
+
+```php
+    public function errorsList($fieldname){
+
+        $output = '';
+        if(isset($this->errors[$fieldname])){
+            $output .= "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+                foreach ($this->errors[$fieldname] as $error) {
+                $output .= "<li>{$error}</li>";
+                }
+            $output .= "</ul></div>";
+        }
+
+        return $output;
+    }
+```
+
+> [Приклад застосування](https://i.imgur.com/GWUrHMv.png)
+
+2. Трішки змінили логіку в контролері `post-create.php`:
+   - за умови якщо немає помилок `!hasErrors()` - будемо виконувати запит в базу
+   - Та також додали `$_SESSION['success']` та `$_SESSION['error']`
+
+```php
+       if (!$validation->hasErrors()) {
+        if ($db->query("INSERT INTO `posts` (`title`, `content`) VALUES(:title, :content)", $data)) {
+             $_SESSION['success'] = 'Новий пост було створено';
+        }else{
+            $_SESSION['error'] = "Database Error";
+        }
+
+        redirect();
+    }
+```
+
+3. Також у файлі `func.php` створив функцію `getAlerts`- мета її дуже проста, вона буде викликатись у файлі `header.tpl.php`, щоб за умови, якщо в наших глобальних змінних - `$_SESSION['success']` та `$_SESSION['error']`, вона буде викидувати алерти
+
+> ПС: поки цей функціонал, налаштовано для файлика `post-create` бо саме у цьому файлі заповнюватимуться дані для глобальної змінно `$_SESSION`
+
+```php
+function getAllerts(){
+    if(!empty($_SESSION['success'])){
+        require_once COMPONENTS . '/success-alert.tpl.php';
+        unset($_SESSION['success']);
+    }
+
+    if(!empty($_SESSION['error'])){
+        require_once COMPONENTS . '/danger-alert.tpl.php';
+        unset($_SESSION['error']);
+    }
+}
+```

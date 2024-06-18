@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
  <header class="bg-dark mb-1">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,3 +35,5 @@
         </nav>
     </div>
 </header>
+
+ <?php getAllerts() ?>

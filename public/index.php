@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Підключення констант та різних пакетів для PHP
 require_once '../config/constants.php';
 require_once VENDOR . '/autoload.php';

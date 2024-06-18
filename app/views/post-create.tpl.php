@@ -1,4 +1,8 @@
-<?php require COMPONENTS . '/header.tpl.php'; ?>
+<?php 
+
+require COMPONENTS . '/header.tpl.php';
+
+?>
 
         <main class="main">
             <div class="container">
@@ -10,21 +14,13 @@
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title" value="<?= specialChars(old('title')); ?>">
 
-                             <?php if(isset($errors['title'])): ?>
-                            <div class="invalid-feedback d-block">
-                                <?= $errors['title'] ?>
-                            </div>
-                            <?php endif ?>
+                            <?php if(isset($validation)){echo $validation->errorsList('title');} ?>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3" placeholder="Чекаю на введення даних"><?= specialChars(old('content')); ?></textarea>
                            
-                            <?php if(isset($errors['content'])): ?>
-                            <div class="invalid-feedback d-block">
-                                <?= $errors['content'] ?>
-                            </div>
-                            <?php endif ?>
+                            <?php  if(isset($validation)){echo $validation->errorsList('content');} ?>
                         </div>
 
                         <div class="col-auto">
