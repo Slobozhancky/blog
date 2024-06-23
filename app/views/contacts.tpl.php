@@ -1,7 +1,9 @@
 <?php require COMPONENTS . '/header.tpl.php'; ?>
 
-    <main class="main d-flex align-items-center justify-content-center">
-        <h2>Contacts page</h2>
+    <main class="main">
+        <div class="container">
+            <h2 class="text-center">Contacts page</h2>
+        </div>
     </main>
 
 <?php require COMPONENTS . '/footer.tpl.php'; ?>

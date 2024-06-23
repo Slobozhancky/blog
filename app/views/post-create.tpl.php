@@ -16,6 +16,14 @@ require COMPONENTS . '/header.tpl.php';
 
                             <?php if(isset($validation)){echo $validation->errorsList('title');} ?>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Excerpt</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="excerpt" placeholder="Опис до поста" value="<?= specialChars(old('title')); ?>">
+
+                            <?php if(isset($validation)){echo $validation->errorsList('excerpt');} ?>
+                        </div>
+
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Content</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3" placeholder="Чекаю на введення даних"><?= specialChars(old('content')); ?></textarea>

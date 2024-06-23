@@ -11,6 +11,9 @@
                                     <h5 class="card-title"><?= $post['title'] ?></h5>
                                     <p class="card-text"><?= $post['content'] ?></p>
                                     <a href="post?id=<?php echo $post['id'] ?>" class="btn btn-primary">Go to post</a>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="text-black-50"><?= date('d.m.Y', strtotime($post['created_at'])) ?></p>
+                                    </div>
                                 </div>
                             </div>
                             
