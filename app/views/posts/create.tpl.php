@@ -9,7 +9,7 @@ require COMPONENTS . '/header.tpl.php';
                 <div class="row">
                   <h2><?= $title ?></h2>
 
-                    <form class="needs-validation" action="" method="post" novalidate>
+                    <form class="needs-validation" action="/posts" method="post" novalidate>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="title" value="<?= specialChars(old('title')); ?>">

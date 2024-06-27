@@ -35,8 +35,6 @@ class Validator {
             }
         }
 
-        d($this->getErrors()); 
-
         return $this;
     }
 

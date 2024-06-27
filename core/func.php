@@ -1,6 +1,6 @@
 <?php
 
-function aboard($code){
+function aboard($code, $title = '404'){
     http_response_code($code);
     require_once ERRORS_PAGES . "/{$code}.tpl.php";
     die;
