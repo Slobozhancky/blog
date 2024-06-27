@@ -17,9 +17,21 @@ $dotenv->load();
 // Зєднання з базою даних
 $db_config = require CONFIG . '/db_conf.php';
 use Core\Classes\Database;
-// =========================================
-$db = (Database::getInstance())->getConnection($db_config);
+use Core\Classes\Router;
 
+// =========================================
+
+$db = (Database::getInstance())->getConnection($db_config);
+global $db;
+
+$router = new Router();
+require_once CONFIG . '/routes.php';
+
+if ($router->match()) {
+    $router->match();
+}else{
+    aboard(404);
+}
 // Підключення відповідних роутінгів
-require_once CORE . '/router.php';
+// require_once CORE . '/router.php';
 // =========================================

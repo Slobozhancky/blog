@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @var Database $db
- */
+global $db;
 
 $title = "About";
 
