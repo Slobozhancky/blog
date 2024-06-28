@@ -51,7 +51,7 @@ class Database {
             $this->statement = $this->connection->prepare($query);
             $this->statement->execute($params);
         } catch (PDOException $error) {
-            d($error->getMessage());
+            // d($error->getMessage());
             return false;
         }
         
