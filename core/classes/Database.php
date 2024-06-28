@@ -77,4 +77,7 @@ class Database {
         return $res;
     }
 
+    public function rowCount(){
+        return $this->statement->rowCount();
+    }
 }

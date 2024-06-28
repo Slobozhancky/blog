@@ -6,6 +6,7 @@ $title = "Create new Post";
 
 global $db;
 
+
 $fillable = ['title', 'content', 'excerpt'];
 $data = validateInputsWithForm($fillable);
 
@@ -44,13 +45,22 @@ $validation = $validator->validate($data, $rules = [
 ]);
 
 if (!$validation->hasErrors()) {
+
     if ($db->query("INSERT INTO `posts` (`title`, `excerpt`, `content`) VALUES(:title, :excerpt, :content)", $data)) {
-        $_SESSION['success'] = 'Новий пост було створено';
+        $res['answer'] = $_SESSION['success'] = 'New post, was created';
     }else{
-        $_SESSION['error'] = "Database Error";
+        $res['answer'] = $_SESSION['error'] = "Database Error";
     }
 
-    redirect('/');
+    if ($validation->hasErrors()) {
+        echo json_encode($validation->getErrors(), 1);
+        // die;
+    }else{
+        echo json_encode($res);
+        // die;
+    }
+
+    // redirect('/');
 
 }else {
     require VIEWS . '/posts/create.tpl.php';
