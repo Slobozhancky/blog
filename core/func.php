@@ -7,9 +7,14 @@ function aboard($code, $title = '404'){
 }
 
 function validateInputsWithForm(array $fillable){
+
+    $api_data = json_decode(file_get_contents('php://input'), 1);
+
+    $dat_for_create_post = $api_data ?? $_POST;
+
     $data = [];
 
-    foreach ($_POST as $key => $value) {
+    foreach ($dat_for_create_post as $key => $value) {
         if (in_array($key, $fillable)) {
             $data[$key] = htmlspecialchars(trim($value), ENT_QUOTES|ENT_SUBSTITUTE);
         }
