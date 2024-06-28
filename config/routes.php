@@ -1,6 +1,6 @@
 <?php
 
-/** @var $router */
+/** @var $router */ // цю інфу слід вказати, щоб не виникало помилки
 
 //Posts
 $router->get('', 'posts/index.php');
